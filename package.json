@@ -1,0 +1,25 @@
+{
+  "name": "dianhaobijiao",
+  "version": "3.0.0",
+  "description": "A minimal Electron application for dianhao comparision",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "dianhao",
+    "comparision",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub-revised by zjn",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.8.2"
+  },
+  "dependencies": {
+    "node-xlsx": "^0.11.2"
+  }
+}

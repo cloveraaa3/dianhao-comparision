@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>点号比较小工具</title>
+    <style>
+        table{
+         
+          margin: 0,auto;
+          display: none;
+          border-collapse: collapse;
+          text-align: center;
+          
+        }
+        caption{
+          padding: 5px;
+          font-weight: bolder;
+        }
+        tr,td,th{
+          border: 1px solid #000;
+        }
+        
+        h1{
+          text-align: center;
+          font-weight: bold
+        }
+        div{
+          border: #000 1px solid;
+          background-color: #eee;
+          padding: 10px;
+          margin:auto 20px;
+          display: inline-block;
+        }
+        body{
+          text-align: center;
+        }
+        input{
+          width: 150px;
+          height: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>点号比较小工具</h1>
+    旧场站：<div id="holder1">
+        请将excel表格拖至此处
+      </div><br><br><br>
+    新场站：<div id="holder2">
+        &nbsp&nbsp&nbsp&nbsp Drag your file here&nbsp&nbsp&nbsp&nbsp
+      </div><br><br><br>
+    <input type="button" name="bijiao" id="dianji" value="比较"><br><br>
+    
+    <table id="xianshi" >
+      
+      <caption>比较结果列表</caption>
+      <thead>
+        <tr>
+          <th>&nbsp&nbsp点号&nbsp&nbsp</th>
+          <th>&nbsp&nbsp表1值&nbsp&nbsp</th>
+          <th>&nbsp&nbsp表2值&nbsp&nbsp</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+
+    </table>
+    
+    <br>
+    <!-- All of the Node.js APIs are available in this renderer process. 
+    We are using Node.js <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    -->
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
