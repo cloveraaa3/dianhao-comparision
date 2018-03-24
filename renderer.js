@@ -6,6 +6,7 @@
 // 1.如果两个表相同，那就输出“无不同”
 // 2.导出excel
 // 3.界面再搞好看一点
+// 4.点几次就只显示一次表
 
 
 
@@ -14,6 +15,7 @@ window.onload=function() {
 	
 	var dianji=document.getElementById('dianji');
 	var xianshi=document.getElementById('xianshi');
+	var xianshi0=document.getElementById('xianshi0');
 	var xlsx=require('node-xlsx');
 	//获取路径
 	var filePath1=null;
@@ -50,8 +52,10 @@ window.onload=function() {
 		holder2.innerHTML=filePath2;
 		return false;
 	};
-  
-  
+	//此处为调试增加两个path
+	filePath1='F:\\功能说明.xlsx';holder1.innerHTML=filePath1;
+	filePath2='F:\\功能说明.xlsx';holder2.innerHTML=filePath2;
+
 	dianji.onclick=function(){
 		// alert('aaa')
 		
@@ -174,7 +178,13 @@ window.onload=function() {
 				
 		// 	}
 		// }
-		for(var i;i<bijiao.length;i++){
+		if(bijiao.length==0){
+			alert('比较结果：共有0条记录');
+			xianshi0.innerHTML='比较结果:共有0条记录';
+			
+			
+		}else{
+			for(var i;i<bijiao.length;i++){
 			var tr=xianshi.tBodies[0].insertRow(i);
 			tr.insertCell(0).innerHTML=bijiao[i].dianhao;
 			tr.insertCell(1).innerHTML=bijiao[i].zhi1;
@@ -184,6 +194,8 @@ window.onload=function() {
 		//writeXls(bijiao);
 		xianshi.caption.innerHTML='比较结果:共有'+i+'条记录'+'<br><br>结果列表';
 		xianshi.style.display='inline-block';//表格显示居中
+		}
+		
 	};
 	
 	
