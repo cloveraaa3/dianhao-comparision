@@ -119,6 +119,7 @@ window.onload=function() {
 	}
 	
 	dianji.onclick=function(){
+		bijiao =[];
 		if(index11==null){alert('请选择比较内容');}
 		else{
 			myArray1=shuzu(data1,index11,index22);
@@ -127,7 +128,7 @@ window.onload=function() {
 			for(var i =0;i<myArray1.length;){
 				// alert('循环执行:i='+i)
 				var myData1=myArray1[i];
-				var flag=0;//
+				var flag=0;//找到点号=1，没找着=0
 				// alert(myData1.zhi);
 				//遍历myArray2,找点号，比较值是否相同
 				for(var j=0;j<myArray2.length;j++){
@@ -181,20 +182,28 @@ window.onload=function() {
 				bijiao.push(jieguo);
 			}
 			
-			
-
 			// 实现了下一步要添加的功能： 1.如果两个表相同，那就输出“无不同”
+			var tbody=document.getElementsByTagName('tbody')[0];
+			// 实现了下一步要添加的功能： 4.点几次就只显示一次表
+			xianshi.removeChild(tbody);
+			tbody=null;
+			var newTbody=document.createElement('tbody');
+			xianshi.appendChild(newTbody);
+			
+			// 写进html表格
 			if(bijiao.length==0){
 				
 				xianshi0.innerHTML='比较结果:共有0条记录';
 			
 			}else{
+				
 				for(var i=0;i<bijiao.length;i++){
 				var tr=xianshi.tBodies[0].insertRow(i);
 				tr.insertCell(0).innerHTML=bijiao[i].dianhao;
 				tr.insertCell(1).innerHTML=bijiao[i].zhi1;
 				tr.insertCell(2).innerHTML=bijiao[i].zhi2;
 				}
+				
 				//writeXls(bijiao);
 				xianshi.caption.innerHTML='比较结果:共有'+i+'条记录'+'<br><br>结果列表';
 				xianshi.style.display='inline-block';//表格显示居中
